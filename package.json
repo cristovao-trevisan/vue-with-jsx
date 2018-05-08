@@ -1,0 +1,39 @@
+{
+  "name": "form-componentization",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristóvão Trevisan",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-stage-0": "^7.0.0-beta.46",
+    "@babel/runtime": "^7.0.0-beta.46",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^8.0.0-beta.2",
+    "babel-plugin-jsx-vue-functional": "^2.1.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "vue": "^2.5.16",
+    "vue-jsx-hot-loader": "^1.3.0",
+    "vuex": "^3.0.1",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
