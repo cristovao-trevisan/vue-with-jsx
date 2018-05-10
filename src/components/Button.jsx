@@ -2,7 +2,7 @@ import Prefixer from 'inline-style-prefixer'
 
 const prefixer = new Prefixer()
 
-const clickedTime = 0.2 // seconds
+const clickedTime = 0.1 // seconds
 const styles = prefixer.prefix({
   button: {
     cursor: 'pointer',

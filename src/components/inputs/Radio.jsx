@@ -11,17 +11,20 @@ const styles = prefixer.prefix({
     justifyContent: 'space-evenly',
     flex: 1,
   },
-  itemContainer: { display: 'flex' },
+  itemContainer: {
+    cursor: 'pointer',
+    display: 'flex',
+  },
   error: {
     border: '1px solid #f00',
     borderRadius: '2px',
   },
   box: {
-    cursor: 'pointer',
     width: '14px',
     height: '14px',
     border: '2px solid #ccc',
     borderRadius: '2px',
+    marginRight: '2px',
   },
   selected: {
     position: 'relative',
@@ -63,7 +66,6 @@ export default {
   },
 
   methods: {
-    focus() { this.$refs.input.focus() },
     onInput(value) {
       this.$emit('change', value)
     },
