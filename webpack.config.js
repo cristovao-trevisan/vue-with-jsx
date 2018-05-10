@@ -1,12 +1,10 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack')
 
 module.exports = {
-  entry: {
-    app: './src/index.jsx',
-    // vue: 'vue',
-  },
+  entry: './src/index.jsx',
 
   output: {
     filename: '[name].[chunkhash].js',
@@ -28,12 +26,15 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
+      vue$: process.env.NODE_ENV === 'production'
+        ? 'vue/dist/vue.runtime.esm.js'
+        : 'vue/dist/vue.esm.js',
     },
   },
 
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
+    // new BundleAnalyzerPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `"${process.env.NODE_ENV || 'development'}"`,
     }),

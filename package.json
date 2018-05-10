@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && NODE_ENV=production webpack --mode production",
+    "test": "eslint src"
   },
   "author": "Cristóvão Trevisan",
   "license": "MIT",
@@ -35,6 +36,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "webpack-bundle-analyzer": "^2.11.2",
     "webpack-dev-server": "^3.1.4"
   }
 }
