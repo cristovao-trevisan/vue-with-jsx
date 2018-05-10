@@ -1,4 +1,4 @@
-import { sleep } from '../../helpers'
+// import { sleep } from '../../helpers'
 
 /* eslint-disable no-param-reassign */
 const localStorageAvailable = () => typeof localStorage !== 'undefined'
@@ -13,8 +13,9 @@ const buildState = id => ({
 
 /**
  * @param {String} id
+ * @param {Function<Promise<void>>} upload
  */
-export default id => ({
+export default (id, upload) => ({
   namespaced: true,
   state: buildState(id),
   mutations: {
@@ -36,12 +37,13 @@ export default id => ({
     },
   },
   actions: {
-    loadForm({ commit }) {
+    async loadForm({ commit }) {
       if (!localStorageAvailable()) return
 
-      commit('SET_FORM_UPLOADING', true)
+      commit('SET_FORM_LOADING', true)
       const data = localStorage.getItem(id)
-      commit('SET_FORM_UPLOADING', false)
+      // await sleep(200)
+      commit('SET_FORM_LOADING', false)
 
       if (!data) return
       try {
@@ -54,7 +56,7 @@ export default id => ({
     async uploadForm({ commit, state }) {
       commit('SET_FORM_UPLOADING', true)
       console.log(`sending from ${id}`, state.values)
-      await sleep(1500)
+      await upload()
       commit('SET_FORM_UPLOADING', false)
     },
   },
