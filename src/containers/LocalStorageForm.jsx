@@ -127,6 +127,5 @@ const upload = id => (values) => {
   return sleep(1500)
 }
 
-/* eslint-disable import/prefer-default-export */
 export const PersonalInfoForm = LocalStorageForm({ id: 'personalInfo', items: personalInfo, upload: upload('personalInfo') })
 export const BankAccountForm = LocalStorageForm({ id: 'bankAccount', items: bankAccount, upload: upload('bankAccount') })
