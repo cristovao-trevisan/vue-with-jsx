@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "start:prod": "NODE_ENV=production webpack-dev-server --mode production --compress",
-    "build": "rm -rf dist && NODE_ENV=production webpack --mode production --compress --output-path docs",
+    "build": "rm -rf dist && NODE_ENV=production webpack --mode production --output-path docs",
     "test": "eslint src"
   },
   "author": "Cristóvão Trevisan",
