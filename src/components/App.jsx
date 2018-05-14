@@ -1,17 +1,10 @@
 import Prefixer from 'inline-style-prefixer'
 
-import { PersonalInfoForm, BankAccountForm } from '../containers/LocalStorageForm'
+import tabs from '../constants/tabs'
+
 import TabNavigator from './TabNavigator'
 
 const prefixer = new Prefixer()
-
-const tabs = [{
-  name: 'Personal Info',
-  content: PersonalInfoForm,
-}, {
-  name: 'Bank Account',
-  content: BankAccountForm,
-}]
 
 const styles = prefixer.prefix({
   header: {

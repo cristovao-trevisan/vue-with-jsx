@@ -3,9 +3,6 @@ import Prefixer from 'inline-style-prefixer'
 import { mapActions, mapMutations, mapState } from 'vuex'
 
 import form from '../store/modules/form'
-import personalInfo from '../constants/forms/personalInfo'
-import bankAccount from '../constants/forms/bankAccount'
-import { sleep } from '../helpers'
 
 import Button from '../components/Button'
 import Spinner from '../components/Spinner'
@@ -121,11 +118,3 @@ export default function LocalStorageForm({ id, items, upload }) {
     },
   }
 }
-
-const upload = id => (values) => {
-  console.log('upload', id, values)
-  return sleep(1500)
-}
-
-export const PersonalInfoForm = LocalStorageForm({ id: 'personalInfo', items: personalInfo, upload: upload('personalInfo') })
-export const BankAccountForm = LocalStorageForm({ id: 'bankAccount', items: bankAccount, upload: upload('bankAccount') })
