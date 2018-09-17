@@ -1,7 +1,16 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const webpack = require('webpack')
+
+const plugins = [
+  new HtmlWebpackPlugin({ template: './src/index.html' }),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': `"${process.env.NODE_ENV || 'development'}"`,
+  }),
+]
+
+if (process.env.NODE_ENV === 'production') plugins.push(new BundleAnalyzerPlugin())
 
 module.exports = {
   entry: './src/index.jsx',
@@ -32,18 +41,11 @@ module.exports = {
     },
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
-    // new BundleAnalyzerPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': `"${process.env.NODE_ENV || 'development'}"`,
-    }),
-  ],
-
+  plugins,
 
   devServer: {
     hot: true,
     contentBase: './dist',
   },
-  devtool: 'eval-source-map',
+  devtool: process.env.NODE_ENV !== 'production' && 'eval-source-map',
 }
