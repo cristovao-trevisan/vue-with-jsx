@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.jsx',
 
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[hash].js',
     path: resolve(__dirname, 'dist'),
   },
 
@@ -42,6 +42,7 @@ module.exports = {
 
 
   devServer: {
+    hot: true,
     contentBase: './dist',
   },
   devtool: 'eval-source-map',
